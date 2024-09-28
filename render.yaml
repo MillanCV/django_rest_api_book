@@ -1,0 +1,22 @@
+databases:
+  - name: django_projectdb
+    plan: free
+    databaseName: django_project
+    user: django_project
+
+services:
+  - type: web
+    plan: free
+    name: django_project
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn django_project.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: django_projectdb
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

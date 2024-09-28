@@ -3,7 +3,7 @@
 Basic Library website built with Djando and DRF
 
 
-## Crear una app e integrarla
+## Crear una django app tradicional e integrarla
 
 * python manage.py startapp books
 * crear modelo
@@ -14,3 +14,9 @@ Basic Library website built with Djando and DRF
   * controla como se muestra el contenido de la base de datos.
   * ListView
 * Anadir urlpattern en aplicacion y en admin
+* Anadir url
+
+# Crear api
+
+* Instalar DRF y anadirlo en settings 'rest_framewor'
+* 
